@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //let jabatan = "Gubernur"
+        //bikin constructor function
+        function Person(param1, param2) {
+            //let nama = "asep"
+            //membuat variabel/properti
+            this.nama = "asep"
+            this.prm = param1
+            this.prm2 = param2
+            // let umur
+            this.umur
+            //ini pendefinisian sebuah fungsi
+            this.salam = (umur) => {
+                console.log("Hai,saya ", this.nama, "umur saya", umur, "thn");
+            }
+        }
+
+        //bikin object dari function construct
+        //badu itu adalah nilai dari param1
+        //unyil itu adalah nilai dari param2
+        const asep = new Person("badu", "unyil");
+        const maimunah = new Person("siti", "maryam")
+
+        console.log(maimunah.prm);
+        console.log(maimunah.prm2);
+
+        console.log(asep.nama);
+        console.log(asep.prm);
+        console.log(asep.prm2);
+        asep.salam(30)
+        asep.umur = 20
+        console.log(asep.umur);
+
+    </script>
+
+</body>
+
+</html>

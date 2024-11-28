@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <!-- kalau ada tampilan maju kedalam pake class kontainer -->
+    <div class="container">
+        <!-- row itu kebawah, col itu kesamping -->
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body bg-primary text-white text-center">
+                        <!-- fw-bold = buat font tebel -->
+                        <h3 class="fw-bold">Portal Yahsubu</h3>
+                        <p>Created by: Asep Watermelon</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Operator</label>
+                            <select name="" id="operator" class="form-select" onchange="disabel()">
+                                <option hidden></option>
+                                <option value="bilbul">Bilangan Bulat</option>
+                                <option value="bilgan">Bilangan Ganjil</option>
+                                <option value="kali">Perkalian</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Input 1</label>
+                            <input type="number" class="form-control" id="input1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Input 2</label>
+                            <input type="number" class="form-control" id="input2">
+                        </div>
+
+                        <button onclick="checkResult()" class="btn btn-primary">Check Result</button>
+
+                        <!-- ini buat nampilin error -->
+                        <hr class="mt-4">
+                        <h5 id="head"></h5>
+                        <div id="body"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                ini menu
+            </div>
+            <div class="col-md-10">
+                ini slider
+            </div>
+        </div>
+
+        <br>
+        <span class="badge text-danger" style="background-color: pink;">15%</span>
+        <button class="btn btn-outline-success">
+            <i class="fa fa-heart"></i>
+        </button>
+        <button class="btn btn-success">
+            <i class="fa fa-shopping-cart"></i> Pesan
+        </button>
+
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body bg-primary"></div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body bg-primary"></div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body bg-primary"></div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body bg-primary"></div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body bg-primary"></div>
+                </div>
+            </div>
+
+            <p style="font-size: 8pt;">Paragraf</p>
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body bg-primary"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function disabel() {
+            const operator = document.getElementById('operator').value
+            const inp2 = document.getElementById('input2')
+            if (operator === "kali") {
+                inp2.disabled = true
+                inp2.value = ""
+            } else {
+                inp2.disabled = false
+            }
+        }
+
+        function checkResult() {
+
+            //tangkep masing-masing ID nya
+            //lakukan parsing data agar input1 dan 2 itu menjadi integer
+            const operator = document.getElementById('operator').value
+            let inp1 = parseInt(document.getElementById('input1').value)
+            let inp2 = parseInt(document.getElementById('input2').value)
+
+            const head = document.getElementById('head')
+            const body = document.getElementById('body')
+
+            let hasil = []
+
+            //langsung bikin kondisi nya
+            if (operator == "kali") {
+                head.innerHTML = `<b>Hasil Perhitungan Perkalian</b> <br>`
+                let hasilKali = [];
+                for (let angka = 1; angka <= 10; angka++) {
+                    //console.log(angka, input1, angka * input1);
+                    hasilKali.push(`${angka} x ${inp1} = ${angka * inp1}`);
+                    body.innerHTML = hasilKali.join("<br>");
+                }
+            }
+            //isNaN itu adalah fungsi yang digunakan untuk mengecek dia number atau tidak
+            //kondisi pertama kalau semuanya kosong
+            else if (operator === "" || isNaN(inp1) || isNaN(inp2)) {
+                //mau diapain
+                head.innerHTML = "<font color='red'><b>Whoops! something went wrong</b></font>"
+                body.innerHTML = "<font color='red'> *Input tidak boleh kosong </font>"
+            }
+            //ini operasi bilangan bulat \ DAN INP1 < INP2
+            else if (operator === "bilbul" && inp1 < inp2) {
+                //cari headnya ubah tulisannya
+                head.innerHTML = "<b>Hasil Perhitungan Bilangan Bulat</b>"
+                //mau ngapain ?
+                for (inp1; inp1 <= inp2; inp1++) {
+                    //PR buat nampilin di HTML
+                    //console.log(inp1);
+                    //tambahin array hasil pake push
+                    hasil.push(inp1)
+                    //tampilin dilayar
+                    body.innerHTML = hasil
+                }
+            }
+            //ini operasi bulat \ DAN INP1 > INP2
+            else if (operator === "bilbul" && inp1 > inp2) {
+                //cari headnya ubah tulisannya
+                head.innerHTML = "<b>Hasil Perhitungan Bilangan Bulat</b>"
+                //mau ngapain ?
+                for (inp1; inp1 >= inp2; inp1--) {
+                    //PR buat nampilin di HTML
+                    //console.log(inp1);
+                    //tambahin array hasil pake push
+                    hasil.push(inp1)
+                    //tampilin dilayar
+                    body.innerHTML = hasil.join(',')
+                }
+            }
+            //cek bilangan ganjil
+            else if (operator == "bilgan" && inp1 > inp2) {
+                head.innerHTML = `<b>Hasil Perhitungan Bilangan Ganjil</b> <br>`
+                for (inp1; inp1 >= inp2; inp1--) {
+                    if (inp1 % 2 !== 0) {
+                        hasil.push(inp1);
+                        body.innerHTML = hasil.join(", ");
+                    }
+                }
+            } else if (operator == "bilgan" && inp1 < inp2) {
+                head.innerHTML = `<b>Hasil Perhitungan Bilangan Ganjil</b> <br>`
+                for (inp1; inp1 <= inp2; inp1++) {
+                    if (inp1 % 2 !== 0) {
+                        hasil.push(inp1);
+                        body.innerHTML = hasil.join(", ");
+                    }
+                }
+            }
+        }
+
+        // checkResult()
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

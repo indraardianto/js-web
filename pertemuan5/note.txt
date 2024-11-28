@@ -1,0 +1,5 @@
+pertemuan 5 bahas tentang OOP ES6
+1. buat class dulu
+2. buat objek
+3. tambahin properti
+4. akses properti lewat objek yang udah dibuat

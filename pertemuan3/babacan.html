@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <h2 class="fw-bold mb-0"> Warung BabaChan</h2>
+            <p>Makanan sehat, tidak murahan, berkualitas, halalan thoyyiban</p>
+
+            <h5 class="fw-bold">-== Daftar Menu ==-</h5>
+            <ul class="ms-3">
+                <li>AG - Ayam Goreng - 15.000</li>
+                <li>AB - Ayam Bakar - 18.000</li>
+                <li>ET - Es Teh - 5.000</li>
+                <li>EJ - Es Jeruk - 8.000</li>
+            </ul>
+        </div>
+        <hr>
+        <div class="row mt-2">
+            <!-- grid total 12 -->
+            <div class="col-md-6">
+                <div>
+                    <label for="" class="mb-1">Pilih Menu</label>
+                    <!-- form-select itu dipake kalau saya mau pake select option -->
+                    <select id="menu" class="form-select">
+                        <option hidden></option>
+                        <option value="ag">AG - Ayam Goreng</option>
+                        <option value="ab">AB - Ayam Bakar</option>
+                        <option value="et">ET - Es Teh</option>
+                        <option value="ej">EJ - Es Jeruk</option>
+                    </select>
+                </div>
+                <div class="mt-2">
+                    <label for="" class="mb-1">Jumlah Pesan</label>
+                    <!-- form-control dipake kalau saya mau pake field input -->
+                    <input type="number" id="jumlah" class="form-control">
+                </div>
+
+                <button onclick="pesanSekarang()" class="btn btn-primary btn-sm mt-4">Pesan Sekarang</button>
+            </div>
+
+            <div class="col-md-6">
+                <div>
+                    <ul id="daftar_pesan">
+
+                    </ul>
+                </div>
+                <h5 id="total_bayar"></h5>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        //ini buat nyimpen menu makanan
+        let namaMenu = []
+        //ini buat nyimpen harga makanan
+        let deretHarga = []
+        const daftar = document.getElementById('daftar_pesan')
+        let total = document.getElementById('total_bayar')
+
+        const tampilData = () => {
+            //buat reset ul nya
+            daftar.innerHTML = ''
+            //ini buat looping array namaMenu dan deretHarga berdasarkan index
+            for (let index = 0; index < namaMenu.length; index++) {
+                // console.log(`${namaMenu[index]} - ${deretHarga[index]}`);
+                const li = document.createElement('li')
+                //
+                li.textContent = `${namaMenu[index]} - ${deretHarga[index].toLocaleString()}`
+                daftar.appendChild(li)
+            }
+            //faiz
+            //  total.textContent = `Harga Total : ${deretHarga.reduce((a, b) => a + b, 0).toLocaleString()}`
+
+            //Iwan
+            const isi = deretHarga.reduce((totalHarga, hargaSaatIni) => {
+                return totalHarga + hargaSaatIni
+            })
+            total.textContent = `Total Bayar : ${isi.toLocaleString()}`
+        };
+
+        const pesanSekarang = () => {
+            //apakek
+            const menu = document.getElementById('menu').value
+            const jumlah = document.getElementById('jumlah').value
+            if (menu == "ag") {
+                //mau ngapain ?
+                const bayar = jumlah * 15000
+                namaMenu.push("Ayam Goreng")
+                deretHarga.push(bayar)
+                tampilData()
+
+            }
+            else if (menu == "ab") {
+                const bayar = jumlah * 18000
+                namaMenu.push("Ayam Bakar")
+                deretHarga.push(bayar)
+                tampilData()
+
+            } else if (menu == "et") {
+                const bayar = jumlah * 5000
+                namaMenu.push("Es Teh")
+                deretHarga.push(bayar)
+                tampilData()
+
+            } else if (menu == "ej") {
+                const bayar = jumlah * 8000
+                namaMenu.push("Es Jeruk")
+                deretHarga.push(bayar)
+                tampilData()
+
+            }
+        };
+
+
+
+
+
+
+        function a(x, z) {
+            console.log(x, z, array);
+
+        }
+
+        a(1, 25);
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

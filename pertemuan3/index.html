@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //ini array kosong
+        //analogi - tabel kosong
+        const a = [];
+
+        //analogi - insert into
+        a.push(5)
+        console.log(a);
+
+        //typeof itu gak bisa bedain antara array dengan objek
+        console.log(typeof (a));
+        //kalau mau cek variabel array atau bukan pakenya Array.isArray(nama_variabel)
+        console.log(Array.isArray(a));
+
+        const b = []
+        b.push(
+            {
+                "id": 1,
+                "nama": "samson"
+            }
+        )
+
+        console.log(b);
+        //kalau mau akses value dari key objek
+        console.log(b[0].nama);
+
+        const c = [15000, 20000, 30000, "samson", 10000]
+        //jumlahin isian array pake reduce
+        //urutan reduce
+        //reduce(variabel_total, nilai_saat_ini)
+        let hasil = c.reduce((totalHarga, hargaSaatIni) => {
+            return totalHarga + hargaSaatIni
+        })
+
+        //ini buat nampilin total array dari variabel c
+        console.log(hasil);
+
+
+
+
+    </script>
+</body>
+
+</html>
