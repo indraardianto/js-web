@@ -107,9 +107,7 @@ class Dashboard {
                     jurusan.classList.remove("is-invalid")
                 }
             }
-        }
-
-        else {
+        } else {
             const nama_santri = document.getElementById("nama").value
             const usia_santri = parseInt(document.getElementById("usia").value)
             const jurusan_santri = parseInt(document.getElementById("jurusan").value)
@@ -124,7 +122,6 @@ class Dashboard {
             this.tampilMahasantri()
         }
     }
-
 }
 
 const dashboard = new Dashboard();
