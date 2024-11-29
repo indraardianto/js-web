@@ -100,7 +100,7 @@ class Dashboard {
             const data = document.getElementById("data")
             data.innerHTML = ""
             this.mahasantri.push({ id: 15, nama: nama_santri, usia: usia_santri, jurusan_id: jurusan_santri })
-            console.log(this.mahasantri);
+            //console.log(this.mahasantri);
             this.tampilMahasantri()
         }
     }
