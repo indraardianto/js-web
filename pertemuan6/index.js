@@ -45,6 +45,7 @@ class Keranjang {
     //selectAll
     lihatKeranjang() {
         console.log(`\n-= RINCIAN ${this.title} =-`);
+
         this.totalHarga = 0;
         this.daftarPesanan.forEach((data) => {
             console.log(`- Nama Produk: ${data.namaBarang}, ${data.jumlah}pcs, ${data.harga * data.jumlah}`);
@@ -87,7 +88,6 @@ class Transaksi {
     voucher = ["MERDEKA", "BERBAGI"]
     kembalian = 0
     potongan = 0
-
     //kalau kode nya merdeka dapet potongan 10%
     //kalau kode nya berbagi dapet potongan 15%
 
@@ -153,7 +153,6 @@ keranjang.tambahProduk(produk3, 1)
 keranjang.lihatKeranjang()
 
 const transaksi = new Transaksi(keranjang)
-
 transaksi.rincianTransaksi()
 transaksi.kodeVoucher("MERDEKA")
 transaksi.pembayaran(2000000)
