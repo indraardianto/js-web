@@ -2,6 +2,8 @@
 class Dashboard {
     constructor() {
         this.tampilMahasantri()
+        // this.formInput = document.querySelectorAll('input')
+        // console.log(this.formInput);
     }
 
     //simulasi tabel mahasantri
@@ -75,54 +77,35 @@ class Dashboard {
     }
 
     tambahData() {
-        const nama = document.getElementById("nama")
-        const usia = document.getElementById("usia")
-        const jurusan = document.getElementById("jurusan")
-        if (nama.value === "") {
-            //ngapain ?
-            //nambahin class is-invalid buat tampilin pesan error kedalam masing-masing field input
-            nama.classList.add("is-invalid")
-            nama.onchange = () => {
-                if (nama.value === "") {
-                    nama.classList.add("is-invalid")
-                } else {
-                    nama.classList.remove("is-invalid")
-                }
+        const formInput = document.querySelectorAll('input')
+        const formSelect = document.getElementById('jurusan')
+        formInput.forEach((input) => {
+            if (input.value.trim() === "") {
+                input.classList.add("is-invalid")
+            } else {
+                input.classList.remove("is-invalid")
             }
-        } else if (usia === "") {
-            usia.classList.add("is-invalid")
-            usia.onchange = () => {
-                if (usia.value === "") {
-                    usia.classList.add("is-invalid")
-                } else {
-                    usia.classList.remove("is-invalid")
-                }
-            }
-        } else if (jurusan === "") {
-            jurusan.classList.add("is-invalid")
-            jurusan.onchange = () => {
-                if (jurusan.value === "") {
-                    jurusan.classList.add("is-invalid")
-                } else {
-                    jurusan.classList.remove("is-invalid")
-                }
-            }
+        })
+
+        if (formSelect.value === "") {
+            formSelect.classList.add("is-invalid")
         } else {
+            formSelect.classList.remove("is-invalid")
+        }
+
+        if (formInput[0].value !== "" && formInput[1].value !== "" && formSelect.value !== "") {
             const nama_santri = document.getElementById("nama").value
             const usia_santri = parseInt(document.getElementById("usia").value)
             const jurusan_santri = parseInt(document.getElementById("jurusan").value)
-
             const data = document.getElementById("data")
-            //reset ulang tampilan tabel tbody
             data.innerHTML = ""
-            //push data ke properti mahasantri
             this.mahasantri.push({ id: 15, nama: nama_santri, usia: usia_santri, jurusan_id: jurusan_santri })
-            //ini buat cek data sudah masuk atau belum
             console.log(this.mahasantri);
             this.tampilMahasantri()
         }
     }
 }
+
 
 const dashboard = new Dashboard();
 
