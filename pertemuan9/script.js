@@ -9,6 +9,22 @@ function btnTambah() {
     mahasantri.tambahData(nama.value, usia.value)
 }
 
+//ini fungsi buat nambahin pop up data sebelum dihapus
+//confirm di javascript itu akan menghasilkan return value true or false
+//ok = true
+//cancel = false
+//kalau true maka akan menjalankan sebuah fungsi yaitu btnHapus()
+//kalau false maka akan menjalankan sebuah alert
+//parameter index akan digunakan di fungsi btnHapus()
+//karena ketika akan memanggil fungsi btnHapus() harus disertai juga dengan 1 parameter
+function cek(index) {
+    if (confirm("Yakin neeh ? data ini akan dihapus")) {
+        btnHapus(index)
+    } else {
+        alert("Data tidak jadi dihapus")
+    }
+}
+
 function btnHapus(index) {
     mahasantri.hapusData(index)
 }
@@ -18,7 +34,13 @@ class Mahasantri {
         this.dataMahasantri = []
     }
     //ini tambah data
+
     tambahData(nama, usia) {
+        const namaVal = document.getElementById("nama")
+        const usiaVal = document.getElementById("usia")
+        namaVal.value = ""
+        usiaVal.value = ""
+
         //nama sama usia akan jadi key objeknya
         const dataBaru = { nama, usia }
         // this.dataMahasantri.push({ nama: "", usia:})
@@ -37,7 +59,7 @@ class Mahasantri {
             <td>${no++}</td>
             <td>${data.nama}</td>
             <td>${data.usia}</td>
-            <td> <button class="btn btn-danger" onclick="btnHapus(${index})">
+            <td> <button class="btn btn-danger" onclick="cek(${index})">
             <i class="fa fa-trash"></i> </button> 
             </td>
             `
