@@ -2,7 +2,11 @@ class Mahasantri {
 
     constructor(storageKey) {
         this.storageKey = storageKey;
+        //tabel 1
+        //[]
         this.mahasantri = JSON.parse(localStorage.getItem(this.storageKey)) || [];
+        //tabel 2
+
         this.jurusan = [
             {
                 "id": 1,
