@@ -328,10 +328,9 @@
                 const tabel = document.getElementById("TabelData")
                 tabel.innerHTML = ""
 
-
+                let no = 1;
                 santri.tampilDataSantri().forEach(data => {
                     const row = document.createElement("tr");
-                    let no = 1;
                     let dataJurusan = santri.jurusan.find((elemen) => elemen.id === data.jurusan_id)
                     //let namaJurusan = dataJurusan ? dataJurusan.jurusan : "not found"
 
