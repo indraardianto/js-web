@@ -31,6 +31,7 @@ class Mahasantri {
         this.mahasantri.push(data);
         this.saveToStorage();
     }
+
 }
 
 const santri = new Mahasantri("appData")
