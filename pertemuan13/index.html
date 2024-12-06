@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // console.log(c);
+        // console.log(5);
+
+        //sinkornus
+        //error handling
+
+        //blok try itu akan mengecek kode berjalan tanpa error
+        //jika ada error maka akan dilempar ke blok catch
+        //dan program di luar try akan tetap berjalan, meskipun terjadi error
+        //jalan kode try catch itu sinkronus, jalanin dulu try nya baru catchnya
+
+        //finally - blok kode yang akan selalu dijalankan, mau ada error atau tidak ada error
+        try {
+            //console.log(c);
+            console.log(5);
+        } catch (error) {
+            console.log(error);
+            //   alert("Sistem bermasalah, hubungi programmer")
+        } finally {
+            console.log("ini dari finally");
+        }
+        console.log("program lainnya tetap berjalan");
+
+
+    </script>
+</body>
+
+</html>
