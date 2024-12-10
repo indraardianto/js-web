@@ -1,0 +1,14 @@
+{
+    "status": 200,
+    "message": "Data successfull loaded",
+    "data": [
+        {
+            "id": 1,
+            "nama": "Samsul"
+        },
+        {
+            "id": 2,
+            "nama": "Asep"
+        }
+    ]
+}

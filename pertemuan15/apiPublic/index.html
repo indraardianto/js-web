@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Response dari API Public</h1>
+    <!-- <p id="title"></p> -->
+    <table border="1">
+        <thead>
+            <th>UserID</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>body</th>
+        </thead>
+        <tbody id="data">
+
+        </tbody>
+    </table>
+
+    <script>
+        const ajax = new XMLHttpRequest()
+        ajax.open("GET", "https://jsonplaceholder.typicode.com/posts")
+        ajax.onload = () => {
+            const parse = JSON.parse(ajax.responseText)
+            const data = document.getElementById("data")
+            parse.forEach(elemen => {
+                const tbody = document.getElementById("data")
+                const tr = document.createElement("tr")
+                tr.innerHTML = `<td>${elemen.userId}</td><td>${elemen.id}</td><td>${elemen.title}</td><td>${elemen.body}</td>`
+                tbody.appendChild(tr)
+            });
+        }
+        ajax.send()
+    </script>
+</body>
+
+</html>

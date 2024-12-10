@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="respon"></h1>
+    <!-- <input type="text" name="" id="">
+    <select name="" id=""></select> -->
+    <script>
+        //jika mau cek browser mendukung ajax atau belum
+        // if (window.XMLHttpRequest) {
+        //     alert("browser ini mendukung ajax")
+        // } else {
+        //     alert("browser udah tua")
+        // }
+        //langkah pertama buatin objek dari ajaxnya - class XMLHttpRequest
+        const ajax = new XMLHttpRequest();
+        //        console.log(ajax);
+        //definisikan method nya dan url datanya
+        ajax.open("GET", "api/hello.json")
+        //proses data dari server
+        ajax.onload = () => {
+            //untuk dapetin datanya bisa menggunakan properti responseText
+            //hasilnya adalah JSON string
+            console.log(ajax.responseText);
+            //parsing data agar jadi objek javascript
+            const parse = JSON.parse(ajax.responseText)
+            const respon = document.getElementById("respon")
+            console.log(parse.data.nama);
+            console.log(parse.message);
+
+            respon.textContent = parse.data[1].nama
+        }
+        //kirim request ke server
+        ajax.send()
+    </script>
+</body>
+
+</html>
