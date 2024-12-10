@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="module" src="./library.js"></script>
+    <script type="module">
+        //ini contoh kalau yang di export itu adalah objek nya (person)
+        //  import { salam, nama, angka, person } from "./library.js"
+
+        //ini contoh kalau yang di export adalah class nya (Person)
+        import { salam, nama, angka, Person } from "./library.js"
+        console.log(salam("Kasino"));
+        console.log(nama);
+        for (let index = 0; index < angka.length; index++) {
+            console.log(angka[index]);
+        }
+
+        // person.sayHi()
+        // console.log(Person);
+        const person = new Person("Slamet")
+        person.sayHi()
+
+
+    </script>
+</body>
+
+</html>
