@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function getData() {
+            // https://jsonplaceholder.typicode.com/posts
+        }
+
+        function getId() {
+            // https://jsonplaceholder.typicode.com/posts/1
+        }
+
+        const promise = new Promise((resolve, reject) => {
+            const ajax = new XMLHttpRequest()
+            ajax.open("GET", "https://jsonplaceholder.typicode.com/posts/1")
+            ajax.onload = () => {
+                //parsing datanye menjadi objek, looping
+                //  console.log(ajax);
+                if (ajax.status == 200) {
+                    //respon nya string JSON
+                    //console.log(ajax.responseText);
+                    resolve(ajax.responseText)
+                } else {
+                    reject("Error : Can't access this link..")
+                }
+            }
+            ajax.send()
+        });
+        //then yang pertama digunakan untuk mengkonversi menjadi tipe data sesuai
+        //dengan yang kita inginkan
+        promise.then((response) => {
+            return JSON.parse(response)
+        })
+            .then((data) => {
+                console.log(data);
+            }).catch((error) => {
+                console.log(error);
+            })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <h2 class="fw-bold">Perkiraan Cuaca</h2>
+            <p>BMKG - Pesantren PeTIK</p>
+            <label for="">API KEY</label>
+            <input type="text" id="koordinat" class="form-control mb-2">
+            <label for="">Lokasi</label>
+            <input type="text" id="lokasi" class="form-control">
+            <button id="cek" class="btn btn-primary mt-4"> <i class="fa fa-search"></i> Cek</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("cek").addEventListener("click", () => {
+            const koordinat = document.getElementById("koordinat").value
+            const lokasi = document.getElementById("lokasi").value
+            function cekCuaca() {
+                const api = [
+                    {
+                        api: 12345,
+                        lokasi: "Bandung"
+                    },
+                    {
+                        api: 12345,
+                        lokasi: "Riau"
+                    },
+                    {
+                        api: 12345,
+                        lokasi: "Binjai"
+                    },
+                ]
+
+                return new Promise((resolve, reject) => {
+                    console.log("Menunggu informasi cuaca......");
+                    setTimeout(() => {
+                        if (lokasi === api[0].lokasi) {
+                            resolve({
+                                suhu: 20,
+                                cuaca: "Hujan Ringan"
+                            })
+                        } else if (lokasi === api[1].lokasi) {
+                            resolve({
+                                suhu: 37,
+                                cuaca: "Panas Berawan"
+                            })
+                        } else if (lokasi === api[2].lokasi) {
+                            resolve({
+                                suhu: 27,
+                                cuaca: "Cerah Berawan"
+                            })
+                        } else {
+                            reject("Error : lokasi tidak valid")
+                        }
+                    }, 2000)
+                })
+            }
+
+            cekCuaca()
+                .then((response) => {
+                    //mengubah menjadi JSON string
+                    return JSON.stringify(response)
+                })
+                .then((data) => {
+                    console.log(data);
+                }).catch((error) => {
+                    console.log(error);
+                })
+        })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
