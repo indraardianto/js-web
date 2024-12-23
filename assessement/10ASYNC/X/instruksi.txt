@@ -1,0 +1,2 @@
+DAPATKAN DATA DARI API : https://jsonplaceholder.typicode.com/posts/1
+- GUNAKAN AJAX DAN PROMISE

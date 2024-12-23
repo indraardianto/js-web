@@ -1,0 +1,1 @@
+GUNAKAN FILE index.html untuk menampilkan data JSON user.json. Menggunakan AJAX

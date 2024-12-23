@@ -1,0 +1,22 @@
+{
+  "status": 200,
+  "message": "Data successfull loaded",
+  "data": [
+    {
+      "id": 1,
+      "nama": "Samsul"
+    },
+    {
+      "id": 2,
+      "nama": "Asep"
+    },
+    {
+      "id": 3,
+      "nama": "Udin"
+    },
+    {
+      "id": 4,
+      "nama": "Samson"
+    }
+  ]
+}

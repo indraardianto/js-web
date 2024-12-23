@@ -1,0 +1,4 @@
+Buatlah sebuah form HTML yang memiliki input field untuk nama dan email.
+Buatlah tombol dengan id submitForm yang ketika diklik,
+akan menampilkan alert yang berisi nama dan email yang diinputkan, serta berikan
+kondisi nama dan email tidak boleh kosong
